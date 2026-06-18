@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maxwell Legan — Cybersecurity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #0b0e13;
+      --surface:   #111620;
+      --border:    #1e2736;
+      --accent:    #00c8a0;       /* terminal teal */
+      --accent2:   #3a7bd5;       /* link blue */
+      --text:      #c9d1e0;
+      --muted:     #5a6a82;
+      --heading:   #e8edf5;
+      --mono:      'IBM Plex Mono', monospace;
+      --sans:      'Inter', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── layout ── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 32px 80px;
+    }
+
+    /* ── header ── */
+    header {
+      border-left: 3px solid var(--accent);
+      padding-left: 20px;
+      margin-bottom: 48px;
+    }
+
+    .prompt {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    header h1 {
+      font-family: var(--mono);
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 600;
+      color: var(--heading);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .tagline {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent);
+      margin-top: 6px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      margin-top: 16px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .contact a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .contact a:hover { color: var(--accent); }
+
+    .contact span::before { content: '// '; color: var(--border); }
+
+    /* ── section ── */
+    section { margin-bottom: 48px; }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── summary / objective ── */
+    .prose {
+      color: var(--text);
+      font-size: 14.5px;
+      line-height: 1.75;
+      max-width: 72ch;
+    }
+
+    /* ── experience ── */
+    .job { margin-bottom: 32px; }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .job-title {
+      font-family: var(--mono);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--heading);
+    }
+
+    .job-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .job-company {
+      font-size: 13px;
+      color: var(--accent2);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .job-location {
+      color: var(--muted);
+      font-size: 12px;
+      margin-left: 8px;
+    }
+
+    ul.bullets {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    ul.bullets li {
+      font-size: 13.5px;
+      line-height: 1.65;
+      padding-left: 16px;
+      position: relative;
+      color: var(--text);
+    }
+
+    ul.bullets li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: var(--mono);
+    }
+
+    /* ── skills ── */
+    .skill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 4px 10px;
+      border-radius: 3px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .skill-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── certs ── */
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cert {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cert-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .cert-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--heading);
+    }
+
+    .cert-issuer {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── education ── */
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .edu-school {
+      font-family: var(--mono);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--heading);
+    }
+
+    .edu-degree {
+      font-size: 13px;
+      color: var(--accent2);
+      margin: 4px 0 10px;
+      font-style: italic;
+    }
+
+    .coursework {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .course-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 3px 9px;
+      border-radius: 2px;
+    }
+
+    /* ── print ── */
+    @media print {
+      body { background: #fff; color: #111; }
+      .page { padding: 20px; }
+      :root {
+        --bg: #fff; --surface: #f5f5f5; --border: #ddd;
+        --accent: #00856b; --accent2: #1a5cb0;
+        --text: #222; --muted: #666; --heading: #000;
+      }
+      .skill-tag, .course-tag { border-color: #ccc; }
+    }
+
+    /* ── mobile ── */
+    @media (max-width: 540px) {
+      .page { padding: 36px 20px 60px; }
+      .job-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <p class="prompt">resume.html</p>
+    <h1>Maxwell Legan</h1>
+    <p class="tagline">// Information Technology Security Analyst</p>
+    <div class="contact">
+      <span>Sterling, VA</span>
+      <a href="tel:7034708379">703.470.8379</a>
+      <a href="mailto:maxwell.legan@proton.me">maxwell.legan@proton.me</a>
+      <a href="https://linkedin.com" target="_blank">LinkedIn ↗</a>
+    </div>
+  </header>
+
+  <!-- SUMMARY -->
+  <section>
+    <div class="section-label">Summary</div>
+    <p class="prose">
+      Information Technology Security Analyst with 5 years of experience in cybersecurity and information technology, specializing in cloud security and vulnerability management. Proven track record in executing cloud and application security initiatives, developing security tools, and designing incident response playbooks. Strong alignment with engineering functions through hands-on experience in CI/CD workflows and security policy implementation.
+    </p>
+  </section>
+
+  <!-- OBJECTIVE -->
+  <section>
+    <div class="section-label">Objective</div>
+    <p class="prose">
+      Results-driven cybersecurity professional seeking a role where I can contribute to the protection of organizational assets, support risk management initiatives, and strengthen security posture. Looking to apply hands-on technical knowledge, consulting experience, and a commitment to continuous learning while working alongside experienced professionals to deliver impactful solutions for clients and stakeholders.
+    </p>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <div class="section-label">Experience</div>
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Information Technology Security Analyst</span>
+        <span class="job-date">Jun 2021 – Jun 2026</span>
+      </div>
+      <div class="job-company">Accenture <span class="job-location">— Arlington, VA</span></div>
+      <ul class="bullets">
+        <li>Leveraged Terraform to codify cloud security configurations, enabling repeatable deployments that improved configuration consistency and reduced manual setup effort by 20%.</li>
+        <li>Designed cloud-native incident response playbooks that integrated with provider APIs to automate compromised resource isolation, improving cloud resource availability.</li>
+        <li>Implemented Azure Blueprints to codify compliance and security baselines, lowering manual governance overhead by automating guardrail enforcement.</li>
+        <li>Embedded vulnerability scanning tools into the CI/CD workflow to block insecure container images from reaching production, strengthening the security posture of SaaS solutions.</li>
+        <li>Evaluated Azure security configurations against equivalent AWS and GCP services, establishing consistent governance practices that minimized configuration inconsistencies across cloud environments.</li>
+        <li>Executed cloud and application security initiatives through security assessments, vulnerability analysis, and implementation support, resulting in a measurable decrease in security incidents and an improved risk posture for client environments.</li>
+        <li>Conducted gap analyses on existing cloud IAM structures to identify standing administrative privileges, replacing them with ephemeral Just-in-Time (JIT) access models to minimize the attack surface for cloud control plane operations.</li>
+        <li>Analyzed emerging cloud-native supply chain attack trends and developed targeted training content for engineering teams on securing CI/CD pipelines and verifying third-party container dependencies, improving developer security proficiency.</li>
+        <li>Audited and hardened container orchestration control plane configurations using CIS Benchmarks, securing API server, etcd, and kubelet to bolster control plane integrity.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <div class="section-label">Skills</div>
+    <div class="skill-grid">
+      <span class="skill-tag">Cloud Security Architecture</span>
+      <span class="skill-tag">Azure Security</span>
+      <span class="skill-tag">AWS Security</span>
+      <span class="skill-tag">GCP</span>
+      <span class="skill-tag">Infrastructure as Code (IaC)</span>
+      <span class="skill-tag">Terraform</span>
+      <span class="skill-tag">Cloud Automation</span>
+      <span class="skill-tag">DevSecOps</span>
+      <span class="skill-tag">Security Engineering</span>
+      <span class="skill-tag">Application Security</span>
+      <span class="skill-tag">IAM</span>
+      <span class="skill-tag">PAM</span>
+      <span class="skill-tag">Access Control</span>
+      <span class="skill-tag">Least Privilege</span>
+      <span class="skill-tag">Security Governance</span>
+      <span class="skill-tag">Kubernetes Security</span>
+      <span class="skill-tag">Container Security</span>
+      <span class="skill-tag">Docker</span>
+      <span class="skill-tag">Linux Administration</span>
+      <span class="skill-tag">Networking</span>
+      <span class="skill-tag">Vulnerability Management</span>
+      <span class="skill-tag">Threat Modeling</span>
+      <span class="skill-tag">Risk Assessment</span>
+      <span class="skill-tag">Security Compliance</span>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Scripting</span>
+      <span class="skill-tag">Security Automation</span>
+      <span class="skill-tag">Log Analysis</span>
+      <span class="skill-tag">Monitoring</span>
+      <span class="skill-tag">Incident Response</span>
+      <span class="skill-tag">Security Operations</span>
+      <span class="skill-tag">Endpoint Security</span>
+      <span class="skill-tag">Technical Documentation</span>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section>
+    <div class="section-label">Certifications</div>
+    <div class="cert-list">
+      <div class="cert">
+        <span class="cert-badge">CERT</span>
+        <div>
+          <div class="cert-name">AWS Cloud Practitioner</div>
+          <div class="cert-issuer">Amazon Web Services</div>
+        </div>
+      </div>
+      <div class="cert">
+        <span class="cert-badge">CERT</span>
+        <div>
+          <div class="cert-name">CompTIA Security+</div>
+          <div class="cert-issuer">CompTIA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <div class="section-label">Education</div>
+    <div class="edu-header">
+      <span class="edu-school">George Mason University</span>
+    </div>
+    <div class="edu-degree">Bachelor of Science — Information Technology</div>
+    <ul class="bullets">
+      <li>Focused on cybersecurity, networking, risk management, and enterprise IT systems.</li>
+      <li>Coursework included Information Security Fundamentals, Data Communications &amp; Networking, Telecommunications, Database Management, Programming, and IT Project Management.</li>
+    </ul>
+    <div class="coursework">
+      <span class="course-tag">Cybersecurity &amp; Information Security</span>
+      <span class="course-tag">Networking &amp; Telecommunications</span>
+      <span class="course-tag">Database Management</span>
+      <span class="course-tag">Computer Programming &amp; OOP</span>
+      <span class="course-tag">IT Project Management</span>
+      <span class="course-tag">Discrete Structures</span>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
