@@ -206,6 +206,12 @@
       border-color: var(--accent);
       color: var(--accent);
     }
+    
+    .skill-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
 
     /* ── certs ── */
     .cert-list {
@@ -246,6 +252,12 @@
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
+      align-items: flex-start;
+    }
+
+    .cert-section-layout {
+      display: flex;
+      gap: 32px;
       align-items: flex-start;
     }
 
@@ -366,65 +378,81 @@
   <section>
     <div class="section-label">Skills</div>
     <div class="skill-grid">
-      <span class="skill-tag">Cloud Security Architecture</span>
-      <span class="skill-tag">Azure Security</span>
-      <span class="skill-tag">AWS Security</span>
-      <span class="skill-tag">GCP</span>
-      <span class="skill-tag">Infrastructure as Code (IaC)</span>
-      <span class="skill-tag">Terraform</span>
-      <span class="skill-tag">Cloud Automation</span>
-      <span class="skill-tag">DevSecOps</span>
-      <span class="skill-tag">Security Engineering</span>
-      <span class="skill-tag">Application Security</span>
-      <span class="skill-tag">IAM</span>
-      <span class="skill-tag">PAM</span>
-      <span class="skill-tag">Access Control</span>
-      <span class="skill-tag">Least Privilege</span>
-      <span class="skill-tag">Security Governance</span>
-      <span class="skill-tag">Kubernetes Security</span>
-      <span class="skill-tag">Container Security</span>
-      <span class="skill-tag">Docker</span>
-      <span class="skill-tag">Linux Administration</span>
-      <span class="skill-tag">Networking</span>
-      <span class="skill-tag">Vulnerability Management</span>
-      <span class="skill-tag">Threat Modeling</span>
-      <span class="skill-tag">Risk Assessment</span>
-      <span class="skill-tag">Security Compliance</span>
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">Scripting</span>
-      <span class="skill-tag">Security Automation</span>
-      <span class="skill-tag">Log Analysis</span>
-      <span class="skill-tag">Monitoring</span>
-      <span class="skill-tag">Incident Response</span>
-      <span class="skill-tag">Security Operations</span>
-      <span class="skill-tag">Endpoint Security</span>
-      <span class="skill-tag">Technical Documentation</span>
+      <div class="skill-row">
+        <span class="skill-tag">Cloud Security Architecture</span>
+        <span class="skill-tag">Azure Security</span>
+        <span class="skill-tag">AWS Security</span>
+        <span class="skill-tag">GCP</span>
+        <span class="skill-tag">Infrastructure as Code (IaC)</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-tag">Terraform</span>
+        <span class="skill-tag">Cloud Automation</span>
+        <span class="skill-tag">DevSecOps</span>
+        <span class="skill-tag">Security Engineering</span>
+        <span class="skill-tag">Application Security</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-tag">IAM</span>
+        <span class="skill-tag">PAM</span>
+        <span class="skill-tag">Access Control</span>
+        <span class="skill-tag">Least Privilege</span>
+        <span class="skill-tag">Security Governance</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-tag">Kubernetes Security</span>
+        <span class="skill-tag">Container Security</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Linux Administration</span>
+        <span class="skill-tag">Networking</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-tag">Vulnerability Management</span>
+        <span class="skill-tag">Threat Modeling</span>
+        <span class="skill-tag">Risk Assessment</span>
+        <span class="skill-tag">Security Compliance</span>
+        <span class="skill-tag">Python</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-tag">Scripting</span>
+        <span class="skill-tag">Security Automation</span>
+        <span class="skill-tag">Log Analysis</span>
+        <span class="skill-tag">Monitoring</span>
+        <span class="skill-tag">Incident Response</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-tag">Security Operations</span>
+        <span class="skill-tag">Endpoint Security</span>
+        <span class="skill-tag">Technical Documentation</span>
+      </div>
     </div>
   </section>
 
-  <!-- CERTIFICATIONS & TRAINING -->
+ <!-- CERTIFICATIONS & TRAINING -->
   <section>
     <div class="section-label">Certifications &amp; Training</div>
-    <div class="cert-badges-grid">
-      <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="cc173f7e-377b-4e0e-8b32-17c825e9cc9d" data-share-badge-host="https://www.credly.com"></div>
-      <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="87372296-fddf-4f2f-a2f5-dd1f24c285e2" data-share-badge-host="https://www.credly.com"></div>
-    </div>
-    <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-    <div class="cert-list" style="margin-top: 20px;">
-      <a class="cert" href="https://www.credly.com/badges/de961e96-5887-476f-88c1-2443545f5f4e/linked_in_profile" target="_blank">
-        <span class="cert-badge">TRAINING</span>
-        <div>
-          <div class="cert-name">Foundations of Operationalizing MITRE ATT&amp;CK v13 ↗</div>
-          <div class="cert-issuer">AttackIQ</div>
-        </div>
-      </a>
-      <a class="cert" href="https://www.credly.com/badges/bbb04036-f528-4765-ae62-023765351996/linked_in_profile" target="_blank">
-        <span class="cert-badge">TRAINING</span>
-        <div>
-          <div class="cert-name">Badge Title Here ↗</div>
-          <div class="cert-issuer">Issuer Here</div>
-        </div>
-      </a>
+    <div class="cert-section-layout">
+      <div class="cert-badges-grid">
+        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="cc173f7e-377b-4e0e-8b32-17c825e9cc9d" data-share-badge-host="https://www.credly.com"></div>
+        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="87372296-fddf-4f2f-a2f5-dd1f24c285e2" data-share-badge-host="https://www.credly.com"></div>
+      </div>
+      <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+      <div class="cert-list">
+        <a class="cert" href="https://www.credly.com/badges/de961e96-5887-476f-88c1-2443545f5f4e/linked_in_profile" target="_blank">
+          <span class="cert-badge">TRAINING</span>
+          <div>
+            <div class="cert-name">Foundations of Operationalizing MITRE ATT&amp;CK v13 ↗</div>
+            <div class="cert-issuer">AttackIQ</div>
+          </div>
+        </a>
+        <a class="cert" href="https://www.credly.com/badges/bbb04036-f528-4765-ae62-023765351996/linked_in_profile" target="_blank">
+          <span class="cert-badge">TRAINING</span>
+          <div>
+            <div class="cert-name">Badge Title Here ↗</div>
+            <div class="cert-issuer">Issuer Here</div>
+          </div>
+        </a>
+      </div>
     </div>
   </section>
 
