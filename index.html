@@ -185,10 +185,31 @@
     }
 
     /* ── skills ── */
-    .skill-grid {
+    .skill-categories {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .skill-category {
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+    }
+
+    .skill-category-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      white-space: nowrap;
+      min-width: 130px;
+      padding-top: 1px;
+    }
+
+    .skill-category-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
 
     .skill-tag {
@@ -205,12 +226,6 @@
     .skill-tag:hover {
       border-color: var(--accent);
       color: var(--accent);
-    }
-    
-    .skill-row {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 2px;
     }
 
     /* ── certs ── */
@@ -377,53 +392,74 @@
   <!-- SKILLS -->
   <section>
     <div class="section-label">Skills</div>
-    <div class="skill-grid">
-      <div class="skill-row">
-        <span class="skill-tag">Cloud Security Architecture</span>
-        <span class="skill-tag">Azure Security</span>
-        <span class="skill-tag">AWS Security</span>
-        <span class="skill-tag">GCP</span>
-        <span class="skill-tag">Infrastructure as Code (IaC)</span>
+    <div class="skill-categories">
+      <div class="skill-category">
+        <span class="skill-category-label">CLOUD //</span>
+        <div class="skill-category-tags">
+          <span class="skill-tag">Cloud Security Architecture</span>
+          <span class="skill-tag">Azure Security</span>
+          <span class="skill-tag">AWS Security</span>
+          <span class="skill-tag">GCP</span>
+          <span class="skill-tag">Infrastructure as Code (IaC)</span>
+          <span class="skill-tag">Cloud Automation</span>
+        </div>
       </div>
-      <div class="skill-row">
-        <span class="skill-tag">Terraform</span>
-        <span class="skill-tag">Cloud Automation</span>
-        <span class="skill-tag">DevSecOps</span>
-        <span class="skill-tag">Security Engineering</span>
-        <span class="skill-tag">Application Security</span>
+      <div class="skill-category">
+        <span class="skill-category-label">DEVSECOPS //</span>
+        <div class="skill-category-tags">
+          <span class="skill-tag">Terraform</span>
+          <span class="skill-tag">DevSecOps</span>
+          <span class="skill-tag">Security Engineering</span>
+          <span class="skill-tag">Application Security</span>
+        </div>
       </div>
-      <div class="skill-row">
-        <span class="skill-tag">IAM</span>
-        <span class="skill-tag">PAM</span>
-        <span class="skill-tag">Access Control</span>
-        <span class="skill-tag">Least Privilege</span>
-        <span class="skill-tag">Security Governance</span>
+      <div class="skill-category">
+        <span class="skill-category-label">IDENTITY //</span>
+        <div class="skill-category-tags">
+          <span class="skill-tag">IAM</span>
+          <span class="skill-tag">PAM</span>
+          <span class="skill-tag">Access Control</span>
+          <span class="skill-tag">Least Privilege</span>
+          <span class="skill-tag">Security Governance</span>
+        </div>
       </div>
-      <div class="skill-row">
-        <span class="skill-tag">Kubernetes Security</span>
-        <span class="skill-tag">Container Security</span>
-        <span class="skill-tag">Docker</span>
-        <span class="skill-tag">Linux Administration</span>
-        <span class="skill-tag">Networking</span>
+      <div class="skill-category">
+        <span class="skill-category-label">CONTAINERS //</span>
+        <div class="skill-category-tags">
+          <span class="skill-tag">Kubernetes Security</span>
+          <span class="skill-tag">Container Security</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Linux Administration</span>
+          <span class="skill-tag">Networking</span>
+        </div>
       </div>
-      <div class="skill-row">
-        <span class="skill-tag">Vulnerability Management</span>
-        <span class="skill-tag">Threat Modeling</span>
-        <span class="skill-tag">Risk Assessment</span>
-        <span class="skill-tag">Security Compliance</span>
-        <span class="skill-tag">Python</span>
+      <div class="skill-category">
+        <span class="skill-category-label">RISK //</span>
+        <div class="skill-category-tags">
+          <span class="skill-tag">Vulnerability Management</span>
+          <span class="skill-tag">Threat Modeling</span>
+          <span class="skill-tag">Risk Assessment</span>
+          <span class="skill-tag">Security Compliance</span>
+        </div>
       </div>
-      <div class="skill-row">
-        <span class="skill-tag">Scripting</span>
-        <span class="skill-tag">Security Automation</span>
-        <span class="skill-tag">Log Analysis</span>
-        <span class="skill-tag">Monitoring</span>
-        <span class="skill-tag">Incident Response</span>
+      <div class="skill-category">
+        <span class="skill-category-label">AUTOMATION //</span>
+        <div class="skill-category-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Scripting</span>
+          <span class="skill-tag">Security Automation</span>
+          <span class="skill-tag">Log Analysis</span>
+          <span class="skill-tag">Monitoring</span>
+        </div>
       </div>
-      <div class="skill-row">
-        <span class="skill-tag">Security Operations</span>
-        <span class="skill-tag">Endpoint Security</span>
-        <span class="skill-tag">Technical Documentation</span>
+      <div class="skill-category">
+        <span class="skill-category-label">OPERATIONS //</span>
+        <div class="skill-category-tags">
+          <span class="skill-tag">Incident Response</span>
+          <span class="skill-tag">Security Operations</span>
+          <span class="skill-tag">Endpoint Security</span>
+          <span class="skill-tag">Technical Documentation</span>
+        </div>
       </div>
     </div>
   </section>
